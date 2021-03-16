@@ -12,10 +12,10 @@ import static ml.miky.antileak.AntiLeak.instance;
 public class TabListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void onTabComplete(PlayerCommandSendEvent e) {
-        if(e.getPlayer().hasPermission("antileak.bypass.tab")) return;
+    public void onTabComplete(PlayerCommandSendEvent event) {
+        if(event.getPlayer().hasPermission("antileak.bypass.tab")) return;
         List<String> commands = instance.getConfig().getStringList("whitelist");
-        e.getCommands().removeIf(cmd -> !commands.contains(cmd));
+        event.getCommands().removeIf(cmd -> !commands.contains(cmd));
     }
 
 }

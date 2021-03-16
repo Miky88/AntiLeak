@@ -11,22 +11,22 @@ import static ml.miky.antileak.AntiLeak.instance;
 
 public class CommandListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void onCommand(PlayerCommandPreprocessEvent e) {
-        if(e.getPlayer().hasPermission("antileak.bypass.cmd")) return;
-        String cmd = e.getMessage().split(" ")[0];
+    public void onCommand(PlayerCommandPreprocessEvent event) {
+        if(event.getPlayer().hasPermission("antileak.bypass.cmd")) return;
+        String cmd = event.getMessage().split(" ")[0];
 
         if(instance.getConfig().getBoolean("blocked.block-colons") && cmd.contains(":")) {
-            e.getPlayer().sendMessage(instance.getConfig().getString("blocked.default-message"));
-            e.setCancelled(true);
-            instance.getLogger().info("Blocked command " + cmd + " from " + e.getPlayer().getDisplayName() + " because it's containing colons");
+            event.getPlayer().sendMessage(instance.getConfig().getString("blocked.default-message"));
+            event.setCancelled(true);
+            instance.getLogger().info("Blocked command " + cmd + " from " + event.getPlayer().getDisplayName() + " because it's containing colons");
             return;
         }
 
         List<String> commands = instance.getConfig().getStringList("blocked.commands");
         if(commands.contains(cmd.substring(1))) {
-            e.getPlayer().sendMessage(instance.getConfig().getString("blocked.default-message"));
-            e.setCancelled(true);
-            instance.getLogger().info("Blocked command " + cmd + " from " + e.getPlayer().getDisplayName());
+            event.getPlayer().sendMessage(instance.getConfig().getString("blocked.default-message"));
+            event.setCancelled(true);
+            instance.getLogger().info("Blocked command " + cmd + " from " + event.getPlayer().getDisplayName());
         }
     }
 }
