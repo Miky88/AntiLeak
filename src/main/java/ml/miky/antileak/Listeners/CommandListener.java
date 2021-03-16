@@ -1,6 +1,5 @@
 package ml.miky.antileak.Listeners;
 
-import ml.miky.antileak.AntiLeak;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -8,24 +7,26 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import java.util.List;
 
+import static ml.miky.antileak.AntiLeak.instance;
+
 public class CommandListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onCommand(PlayerCommandPreprocessEvent e) {
         if(e.getPlayer().hasPermission("antileak.bypass.cmd")) return;
         String cmd = e.getMessage().split(" ")[0];
 
-        if(AntiLeak.instance.config.getBoolean("blocked.block-colons") && cmd.contains(":")) {
-            e.getPlayer().sendMessage(config.getString("blocked.default-message"));
+        if(instance.getConfig().getBoolean("blocked.block-colons") && cmd.contains(":")) {
+            e.getPlayer().sendMessage(instance.getConfig().getString("blocked.default-message"));
             e.setCancelled(true);
-            AntiLeak.instance.getLogger().info("Blocked command " + cmd + " from " + e.getPlayer().getDisplayName() + " because it's containing colons");
+            instance.getLogger().info("Blocked command " + cmd + " from " + e.getPlayer().getDisplayName() + " because it's containing colons");
             return;
         }
 
-        List<String> commands = config.getStringList("blocked.commands");
+        List<String> commands = instance.getConfig().getStringList("blocked.commands");
         if(commands.contains(cmd.substring(1))) {
-            e.getPlayer().sendMessage(config.getString("blocked.default-message"));
+            e.getPlayer().sendMessage(instance.getConfig().getString("blocked.default-message"));
             e.setCancelled(true);
-            AntiLeak.instance.getLogger().info("Blocked command " + cmd + " from " + e.getPlayer().getDisplayName());
+            instance.getLogger().info("Blocked command " + cmd + " from " + e.getPlayer().getDisplayName());
         }
     }
 }
