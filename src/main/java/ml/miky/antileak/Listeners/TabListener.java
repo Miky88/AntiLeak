@@ -11,7 +11,7 @@ import static ml.miky.antileak.AntiLeak.instance;
 
 public class TabListener implements Listener {
 
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onTabComplete(PlayerCommandSendEvent event) {
         if(event.getPlayer().hasPermission("antileak.bypass.tab")) return;
         List<String> commands = instance.getConfig().getStringList("whitelist");

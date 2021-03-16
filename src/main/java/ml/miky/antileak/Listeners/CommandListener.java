@@ -10,7 +10,7 @@ import java.util.List;
 import static ml.miky.antileak.AntiLeak.instance;
 
 public class CommandListener implements Listener {
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onCommand(PlayerCommandPreprocessEvent event) {
         if(event.getPlayer().hasPermission("antileak.bypass.cmd")) return;
         String cmd = event.getMessage().split(" ")[0];
