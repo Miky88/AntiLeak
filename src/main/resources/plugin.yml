@@ -1,0 +1,27 @@
+name: AntiLeak
+version: ${project.version}
+main: ml.miky.antileak.AntiLeak
+api-version: 1.16
+prefix: AntiLeak
+authors: [Miky88]
+description: Plugin that provides useful tools to prevent plugin leaking and enache the whole server security
+website: www.miky.ml
+commands:
+  antileak:
+    description: AntiLeak's main command
+    usage: /antileak
+    permission: antileak.admin
+    permission-message: "Unknown command. Type \"/help\" for help."
+permissions:
+  antileak.bypass.cmd:
+    description: Bypass the command blocking
+    default: op
+  antileak.bypass.tab:
+    description: Bypass the command whitelist
+    default: op
+  antileak.bypass.*:
+    description: Bypass plugin's whole protection
+    default: op
+  antileak.admin:
+    description: Allows use of the plugin and reloading plugin configuration
+    default: op

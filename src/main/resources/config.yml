@@ -1,0 +1,16 @@
+whitelist:
+  # Commands that should be shown in /[TAB] must be listed here
+  # Bypass permission: antileak.bypass.tab
+  - help
+blocked:
+  # Commands the plugin should block the execution
+  # Bypass permission: antileak.bypass.cmd
+  commands:
+    - reload
+    - pl
+    - plugins
+    - help
+  # Message shown when someone tries to use a blocked command, write 'none' to not send any message
+  default-message: Unknown command. Type "/help" for help.
+  # Entirely block ":" in commands (eg. /bukkit:?)
+  block-colons: true
