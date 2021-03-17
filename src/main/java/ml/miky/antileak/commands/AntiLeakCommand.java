@@ -1,4 +1,4 @@
-package ml.miky.antileak.Commands;
+package ml.miky.antileak.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

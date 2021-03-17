@@ -1,8 +1,8 @@
 package ml.miky.antileak;
 
-import ml.miky.antileak.Commands.AntiLeakCommand;
-import ml.miky.antileak.Listeners.CommandListener;
-import ml.miky.antileak.Listeners.TabListener;
+import ml.miky.antileak.commands.AntiLeakCommand;
+import ml.miky.antileak.listeners.CommandListener;
+import ml.miky.antileak.listeners.TabListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 

@@ -1,4 +1,4 @@
-package ml.miky.antileak.Listeners;
+package ml.miky.antileak.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
